@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "metalab/base",
+    "metalab/react"
+  ],
+  "globals": {
+    "fetch": true,
+    "Promise": true
+  },
+  "rules": {
+    "react/no-multi-comp": 0,
+    "func-style": 0
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "name": "universal-relay",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint .",
+    "build:client": "./node_modules/.bin/webpack --bail --config config/webpack/client.webpack.config.babel.js",
+    "build:server": "./node_modules/.bin/webpack --bail --config config/webpack/server.webpack.config.babel.js",
+    "start": "node ./build/server/server.js",
+    "update-schema": "babel-node ./script/update-schema.js",
+    "build": "npm run update-schema && npm run build:client && npm run build:server",
+    "dev": "npm run update-schema && NODE_ENV=development ./node_modules/.bin/webpack-udev-server ./config/webpack/*.webpack.config.babel.js",
+    "postinstall": "npm run build"
+  },
+  "author": "Neal Granger <neal@metalab.co>",
+  "license": "CC0-1.0",
+  "metadata": {
+    "graphql": {
+      "schema": "./build/schema.json"
+    }
+  },
+  "dependencies": {
+    "babel-cli": "^6.7.7",
+    "babel-preset-metalab": "^0.2.1",
+    "babel-relay-plugin-loader": "^0.7.3",
+    "bluebird": "^3.3.5",
+    "exports": "0.0.1",
+    "exports-loader": "^0.6.3",
+    "htmlescape": "^1.1.1",
+    "imports-loader": "^0.6.5",
+    "loader": "^2.1.0",
+    "lodash": "^4.11.1",
+    "node-fetch": "^1.5.1",
+    "node-libs-browser": "^1.0.0",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "react-relay": "^0.8.0",
+    "request": "^2.72.0",
+    "webpack": "^1.13.0",
+    "webpack-config-babel": "^0.2.0",
+    "webpack-config-dev-server": "^0.3.1",
+    "webpack-config-entry": "^0.3.0",
+    "webpack-config-hot": "^0.2.0",
+    "webpack-config-json": "^0.2.0",
+    "webpack-config-optimize": "^0.2.0",
+    "webpack-config-root": "^0.2.1",
+    "webpack-config-source-maps": "^0.2.2",
+    "webpack-config-stats": "^0.2.0",
+    "webpack-partial": "^1.1.2",
+    "whatwg-fetch": "^0.11.0"
+  },
+  "devDependencies": {
+    "eslint": "^2.8.0",
+    "eslint-config-metalab": "^2.0.0-beta.3",
+    "eslint-plugin-filenames": "^0.2.0",
+    "eslint-plugin-import": "^1.5.0",
+    "eslint-plugin-react": "^5.0.1",
+    "webpack-udev-server": "^0.5.0-beta.2"
+  }
+}
