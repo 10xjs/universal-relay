@@ -1,0 +1,8 @@
+{
+  "presets": [
+    "metalab"
+  ],
+  "plugins": [
+    "babel-relay-plugin-loader"
+  ]
+}
